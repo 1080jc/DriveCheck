@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>DriveCheck</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="image/png" sizes="334x267"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img th:src="@{/img/favicon/icon.png}" alt="Logo DriveCheck">
+            <span class="brand-name">DriveCheck</span>
+        </div>
+        <p class="tagline">Gestion inteligente de vehiculos, mantenimientos</p>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Propietario</h2>
+            <a href="/propietario/registro" class="btn">Registrar Propietario</a>
+            <a href="/propietario/login" class="btn">Iniciar Sesion</a>
+        </section>
+
+        <section class="section">
+            <h2>Taller</h2>
+            <a href="/taller/registro" class="btn">Registrar Taller</a>
+            <a href="/taller/login" class="btn">Iniciar Sesion</a>
+        </section>
+    </main>
+</body>
+</html>

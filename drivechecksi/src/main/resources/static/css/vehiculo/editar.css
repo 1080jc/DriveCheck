@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    background-color: #1f2937;
+    color: white;
+    padding: 1rem;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.title {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #111827;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+input[type="date"] {
+    padding: 0.6rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn {
+    margin-top: 1.5rem;
+    background-color: #2563eb;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1e40af;
+}

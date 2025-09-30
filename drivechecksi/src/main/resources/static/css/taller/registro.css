@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #2d3e50;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-volver {
+    color: white;
+    text-decoration: none;
+    background-color: #34495e;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button.btn {
+    background-color: #2d3e50;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button.btn:hover {
+    background-color: #1c2938;
+}
+
+.error {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
+.error-msg {
+    color: red;
+    margin-top: 20px;
+    text-align: center;
+}

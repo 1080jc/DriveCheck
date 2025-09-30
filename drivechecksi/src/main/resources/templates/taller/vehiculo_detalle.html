@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>Datos del Vehiculo</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="image/png"/>
+    <link rel="stylesheet" th:href="@{/css/taller/vehiculo_detalle.css}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img th:src="@{/img/favicon/icon.png}" alt="Logo DriveCheck">
+            <h1>DriveCheck Taller</h1>
+        </div>
+        <div class="nav">
+            <a th:href="@{/taller/panelTaller(nit=${taller.nit})}" class="btn">Volver al Panel</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Vehiculo: <span th:text="${vehiculo.placa}"></span></h2>
+
+        <div class="info">
+            <p><strong>Marca:</strong> <span th:text="${vehiculo.marca}"></span></p>
+            <p><strong>Linea:</strong> <span th:text="${vehiculo.linea}"></span></p>
+            <p><strong>Modelo:</strong> <span th:text="${vehiculo.modelo}"></span></p>
+            <p><strong>Propietario:</strong> 
+                <span th:text="${vehiculo.propietario.nombre}"></span>
+                <span th:text="${vehiculo.propietario.apellido}"></span>
+            </p>
+        </div>
+
+        <div class="acciones">
+            <form th:action="@{/mantenimiento/registro}" method="get">
+                <input type="hidden" name="placa" th:value="${vehiculo.placa}">
+                <input type="hidden" name="tallerNit" th:value="${taller.nit}">
+                <button type="submit" class="btn">Registrar Mantenimiento</button>
+            </form>
+
+            <form th:action="@{/mantenimiento/historial}" method="get">
+                <input type="hidden" name="placa" th:value="${vehiculo.placa}">
+                <button type="submit" class="btn">Ver Historial de Mantenimientos</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

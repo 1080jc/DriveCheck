@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>Editar Vehiculo</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="icon/png" sizes="334x267"/>
+    <link rel="stylesheet" th:href="@{/css/vehiculo/editar.css}">
+</head>
+<body>
+    <header class="main-header">
+        <img src="/img/favicon/icon.png" alt="Logo DriveCheck" class="logo">
+        <h1 class="title">DriveCheck</h1>
+    </header>
+
+    <div class="container">
+        <h2>Editar datos del vehiculo <span th:text="${vehiculo.placa}"></span></h2>
+        <form th:action="@{/vehiculo/actualizar}" th:object="${vehiculo}" method="post">
+            <input type="hidden" th:field="*{placa}"/>
+            <input type="hidden" th:field="*{propietario.id}"/>
+
+            <label for="fechaSoat">Fecha compra SOAT</label>
+            <input type="date" id="fechaSoat" th:field="*{fechaSoat}" required>
+
+            <label for="fechaTecno">Fecha tecnomecanica</label>
+            <input type="date" id="fechaTecno" th:field="*{fechaTecnomecanica}" required>
+
+            <label for="fechaMant">Fecha ultimo mantenimiento</label>
+            <input type="date" id="fechaMant" th:field="*{fechaUltimoMantenimiento}" required>
+
+            <button type="submit" class="btn">Actualizar</button>
+        </form>
+    </div>
+</body>
+</html>

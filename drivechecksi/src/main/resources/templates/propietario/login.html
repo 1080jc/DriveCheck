@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>Iniciar Sesion - Propietario</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="image/png" sizes="334x267"/>
+    <link rel="stylesheet" th:href="@{/css/propietario/login.css}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img th:src="@{/img/favicon/icon.png}" alt="Logo DriveCheck">
+            <span class="brand-name">DriveCheck</span>
+        </div>
+        <a href="/" class="btn-back">Volver al inicio</a>
+    </header>
+
+    <div class="container">
+        <h1>Iniciar Sesion - Propietario</h1>
+
+        <form th:action="@{/propietario/login}" th:object="${propietario}" method="post">
+            <input type="text" th:field="*{id}" placeholder="ID o cédula" required>
+            <input type="password" th:field="*{contraseña}" placeholder="Contraseña" required>
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+    </div>
+</body>
+</html>

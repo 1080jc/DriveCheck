@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>Panel Propietario</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="image/png" sizes="334x267"/>
+    <link rel="stylesheet" th:href="@{/css/propietario/panelpropietario.css}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img th:src="@{/img/favicon/icon.png}" alt="Logo">
+            <span class="brand-name">DriveCheck</span>
+        </div>
+        <a href="/" class="btn-logout">Cerrar sesion</a>
+    </header>
+
+    <div class="container">
+        <h1>Bienvenido, [[${propietario.nombre}]]</h1>
+
+        <div class="btn-link">
+            <a th:href="@{/vehiculo/registro(propietarioId=${propietario.id})}" class="btn">Registrar nuevo vehiculo</a>
+        </div>
+
+        <h2>Tus vehiculos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Placa</th>
+                    <th>Marca</th>
+                    <th>Línea</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="v : ${vehiculos}">
+                    <td th:text="${v.placa}"></td>
+                    <td th:text="${v.marca}"></td>
+                    <td th:text="${v.linea}"></td>
+                    <td>
+                        <form th:action="@{/mantenimiento/historial}" method="get" style="display:inline;">
+                            <input type="hidden" name="placa" th:value="${v.placa}">
+                            <button type="submit" class="btn">Ver historial</button>
+                        </form>
+                        <form th:action="@{/vehiculo/detalle}" method="get" style="display:inline;">
+                            <input type="hidden" name="placa" th:value="${v.placa}">
+                            <button type="submit" class="btn">Ver detalle</button>
+                        </form>
+                        <form th:action="@{/vehiculo/editar}" method="get" style="display:inline;">
+                            <input type="hidden" name="placa" th:value="${v.placa}">
+                            <button type="submit" class="btn">Editar</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>Resumen de Vencimientos</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="icon/png" sizes="334x267"/>
+    <link rel="stylesheet" th:href="@{/css/vehiculo/resumen.css}">
+</head>
+<body>
+<header class="main-header">
+    <img src="/img/favicon/icon.png" alt="Logo DriveCheck" class="logo">
+    <h1 class="title">DriveCheck</h1>
+</header>
+
+    <div class="container">
+        <h2>Vehiculo Registrado: <span th:text="${vehiculo.placa}"></span></h2>
+
+        <p>SOAT vence el: <strong th:text="${#dates.format(vencimientoSoat, 'dd/MM/yyyy')}"></strong></p>
+        <p>Tecnomecanica vence el: <strong th:text="${#dates.format(vencimientoTecno, 'dd/MM/yyyy')}"></strong></p>
+        <p>Proximo mantenimiento: <strong th:text="${#dates.format(vencimientoMant, 'dd/MM/yyyy')}"></strong></p>
+
+        <a th:href="@{/propietario/panelPropietario(id=${vehiculo.propietario.id})}" class="btn">Volver al panel</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>Registro de Vehiculo</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="icon/png">
+    <link rel="stylesheet" th:href="@{/css/vehiculo/registro.css}">
+</head>
+<body>
+    <header class="main-header">
+        <img src="/img/favicon/icon.png" alt="Logo DriveCheck" class="logo">
+        <h1 class="title">DriveCheck</h1>
+        <a href="/" class="back-link">Inicio</a>
+    </header>
+
+    <div class="container">
+        <h2>Registrar Vehiculo</h2>
+        <form th:action="@{/vehiculo/registro}" th:object="${vehiculo}" method="post">
+            <input type="hidden" th:field="*{propietario.id}">
+
+            <input type="text" th:field="*{placa}" placeholder="Placa" required>
+            <input type="text" th:field="*{marca}" placeholder="Marca" required>
+            <input type="text" th:field="*{linea}" placeholder="Línea" required>
+            <input type="number" th:field="*{modelo}" placeholder="Modelo (año)" required>
+            <input type="text" th:field="*{color}" placeholder="Color" required>
+            <input type="text" th:field="*{claseVehiculo}" placeholder="Clase del vehículo" required>
+            <input type="text" th:field="*{servicio}" placeholder="Servicio" required>
+            <input type="text" th:field="*{tipoCarroceria}" placeholder="Tipo de carrocería" required>
+            <input type="text" th:field="*{combustible}" placeholder="Combustible" required>
+            <input type="number" th:field="*{capacidad}" placeholder="Capacidad" required>
+
+            <label>Fecha de compra SOAT</label>
+            <input type="date" th:field="*{fechaSoat}">
+
+            <label>Fecha de compra tecnomecanica</label>
+            <input type="date" th:field="*{fechaTecnomecanica}">
+
+            <label>Fecha del ultimo mantenimiento</label>
+            <input type="date" th:field="*{fechaUltimoMantenimiento}">
+
+            <button type="submit" class="btn">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>

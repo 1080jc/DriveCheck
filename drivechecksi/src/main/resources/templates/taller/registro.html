@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>Registro de Taller</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="image/png"/>
+    <link rel="stylesheet" th:href="@{/css/taller/registro.css}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img th:src="@{/img/favicon/icon.png}" alt="Logo">
+            <span class="brand-name">DriveCheck</span>
+        </div>
+        <a href="/" class="btn-volver">Volver al inicio</a>
+    </header>
+
+    <div class="container">
+        <h1>Registro de Taller</h1>
+
+        <form th:action="@{/taller/registro}" th:object="${taller}" method="post">
+            <input type="text" th:field="*{nit}" placeholder="NIT" required>
+            <div th:if="${#fields.hasErrors('nit')}" th:errors="*{nit}" class="error"></div>
+
+            <input type="text" th:field="*{nombre}" placeholder="Nombre del taller" required>
+            <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="error"></div>
+
+            <input type="text" th:field="*{direccion}" placeholder="Direccion" required>
+            <div th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}" class="error"></div>
+
+            <input type="text" th:field="*{telefono}" placeholder="Telefono" required>
+            <div th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="error"></div>
+
+            <input type="email" th:field="*{correo}" placeholder="Correo electrónico" required>
+            <div th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}" class="error"></div>
+
+            <input type="password" th:field="*{contraseña}" placeholder="Contraseña" required>
+            <div th:if="${#fields.hasErrors('contraseña')}" th:errors="*{contraseña}" class="error"></div>
+
+            <button type="submit" class="btn">Registrar</button>
+        </form>
+
+        <p th:if="${error}" class="error-msg">[[${error}]]</p>
+    </div>
+</body>
+</html>

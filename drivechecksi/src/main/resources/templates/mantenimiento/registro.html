@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="esta es la pagina principal de nuestro proyecto universitario que trata de la creacion de una app web para el monitoreo preventivo y correctivo de vehiculos (carros, motos) de tres marcas en el mercado colombiano"/>
+    <title>Registrar Mantenimiento</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="image/png"/>
+    <link rel="stylesheet" th:href="@{/css/mantenimiento/registro.css}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img th:src="@{/img/favicon/icon.png}" alt="Logo DriveCheck">
+            <h1>DriveCheck Taller</h1>
+        </div>
+        <div class="nav">
+            <a th:href="@{/taller/panelTaller(nit=${mantenimiento.taller.nit})}" class="btn">Volver al Panel</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Registrar Mantenimiento</h2>
+
+        <form th:action="@{/mantenimiento/registro}" th:object="${mantenimiento}" method="post">
+            <input type="hidden" th:field="*{vehiculo.placa}">
+            <input type="hidden" th:field="*{taller.nit}">
+
+            <label>Entregado por (ID)</label>
+            <input type="number" th:field="*{entregadoPor}" placeholder="ID / Cédula" required>
+
+            <label>Fecha de Ingreso</label>
+            <input type="date" th:field="*{fechaIngreso}" required>
+
+            <label>Fecha de Salida</label>
+            <input type="date" th:field="*{fechaSalida}" required>
+
+            <label>Tipo de Servicio</label>
+            <input type="text" th:field="*{tipoServicio}" required>
+
+            <label>Descripcion</label>
+            <textarea th:field="*{descripcion}" rows="3"></textarea>
+
+            <label>Kilometraje</label>
+            <input type="number" th:field="*{kilometraje}" required>
+
+            <label>Observaciones</label>
+            <textarea th:field="*{observaciones}" rows="3"></textarea>
+
+            <label>Costo Total</label>
+            <input type="number" step="0.01" th:field="*{costoTotal}" required>
+
+            <button type="submit" class="btn">Guardar</button>
+        </form>
+    </div>
+</body>
+</html>

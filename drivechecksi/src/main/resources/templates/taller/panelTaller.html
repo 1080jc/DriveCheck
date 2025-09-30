@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="julian cantillo, jose altamiranda, yainer morelos, juan hernandez"/>
+    <meta name="description" content="Dashboard del taller para gestionar mantenimientos de vehículos en la app DriveCheck"/>
+    <title>Dashboard Taller</title>
+    <link rel="icon" href="@{/img/favicon/icon.png}" type="icon/png" sizes="334x267"/>
+    <link rel="stylesheet" th:href="@{/css/taller/panelTaller.css}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="@{/img/favicon/icon.png}" alt="DriveCheck Logo" class="logo">
+            <span class="title">DriveCheck Taller</span>
+        </div>
+        <div class="nav-actions">
+            <form th:action="@{/}" method="get">
+                <button type="submit" class="btn btn-secondary">Cerrar sesion</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Bienvenido, <span th:text="${taller.nombre}">Nombre del Taller</span></h1>
+
+        <form th:action="@{/taller/buscar}" method="post" class="search-form">
+            <input type="text" name="placa" placeholder="Buscar vehículo por placa" required>
+            <input type="hidden" name="nit" th:value="${taller.nit}">
+            <button type="submit" class="btn">Buscar</button>
+        </form>
+
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+    </main>
+</body>
+</html>
